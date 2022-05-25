@@ -69,7 +69,11 @@ Row:
 ;
 
 GreenhouseElement:
-     GreenhouseSensor |  GreenhouseActuator |  GreenhouseRuleSet
+     GreenhouseSensor |  GreenhouseActuator |  GreenhouseRuleSet | GreenhouseSwitch
+;
+
+GreenhouseSwitch:
+	'has' 'switch' name=ID
 ;
 
 RowElement:

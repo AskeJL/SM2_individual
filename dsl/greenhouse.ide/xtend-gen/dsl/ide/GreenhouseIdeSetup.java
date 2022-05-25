@@ -7,6 +7,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import dsl.GreenhouseRuntimeModule;
 import dsl.GreenhouseStandaloneSetup;
+import dsl.ide.GreenhouseIdeModule;
 import org.eclipse.xtext.util.Modules2;
 
 /**

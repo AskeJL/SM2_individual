@@ -20,7 +20,6 @@ import dsl.greenhouse.SettingValue
 import dsl.greenhouse.SettingAction
 import dsl.greenhouse.GreenhouseActuator
 import dsl.greenhouse.GreenhouseSensor
-import dsl.greenhouse.Actuator
 
 /**
  * This class contains custom scoping description.
@@ -45,7 +44,6 @@ import dsl.greenhouse.SettingValue
 import dsl.greenhouse.SettingAction
 import dsl.greenhouse.GreenhouseActuator
 import dsl.greenhouse.GreenhouseSensor
-import dsl.greenhouse.Actuator
 import dsl.greenhouse.GreenhouseRuleSet
 import dsl.greenhouse.Controller
 

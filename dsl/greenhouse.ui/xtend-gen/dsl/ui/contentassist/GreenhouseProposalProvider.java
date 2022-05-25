@@ -3,6 +3,8 @@
  */
 package dsl.ui.contentassist;
 
+import dsl.ui.contentassist.AbstractGreenhouseProposalProvider;
+
 /**
  * See https://www.eclipse.org/Xtext/documentation/310_eclipse_support.html#content-assist
  * on how to customize the content assistant.

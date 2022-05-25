@@ -3,6 +3,7 @@
  */
 package dsl.ui;
 
+import dsl.ui.AbstractGreenhouseUiModule;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 

@@ -3,6 +3,8 @@
  */
 package dsl.ide;
 
+import dsl.ide.AbstractGreenhouseIdeModule;
+
 /**
  * Use this class to register ide components.
  */

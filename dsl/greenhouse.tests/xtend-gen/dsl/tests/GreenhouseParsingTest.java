@@ -5,6 +5,7 @@ package dsl.tests;
 
 import com.google.inject.Inject;
 import dsl.greenhouse.Model;
+import dsl.tests.GreenhouseInjectorProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;

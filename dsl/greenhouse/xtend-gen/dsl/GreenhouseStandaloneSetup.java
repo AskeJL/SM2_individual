@@ -3,6 +3,8 @@
  */
 package dsl;
 
+import dsl.GreenhouseStandaloneSetupGenerated;
+
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
  */

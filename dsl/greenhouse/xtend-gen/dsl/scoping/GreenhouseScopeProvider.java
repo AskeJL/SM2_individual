@@ -18,6 +18,7 @@ import dsl.greenhouse.SettingSensor;
 import dsl.greenhouse.SettingValue;
 import dsl.greenhouse.State;
 import dsl.greenhouse.Trigger;
+import dsl.scoping.AbstractGreenhouseScopeProvider;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;

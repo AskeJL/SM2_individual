@@ -18,6 +18,7 @@ import dsl.greenhouse.RowSensor;
 import dsl.greenhouse.SettingActuator;
 import dsl.greenhouse.SettingSensor;
 import dsl.greenhouse.Trigger;
+import dsl.validation.AbstractGreenhouseValidator;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
