@@ -3,49 +3,24 @@
  */
 package dsl.scoping
 
-import org.eclipse.emf.ecore.EObject
-import org.eclipse.emf.ecore.EReference
-import org.eclipse.xtext.scoping.IScope
-import org.eclipse.xtext.scoping.Scopes
-import org.eclipse.xtext.EcoreUtil2
 import dsl.greenhouse.Action
-import dsl.greenhouse.State
-import dsl.greenhouse.RowSensor
-import dsl.greenhouse.RowActuator
-import dsl.greenhouse.RowRuleSet
-import dsl.greenhouse.SettingSensor
-import dsl.greenhouse.SettingActuator
-import dsl.greenhouse.Trigger
-import dsl.greenhouse.SettingValue
-import dsl.greenhouse.SettingAction
-import dsl.greenhouse.GreenhouseActuator
-import dsl.greenhouse.GreenhouseSensor
-
-/**
- * This class contains custom scoping description.
- * 
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
- * on how and when to use it.
- */
-import org.eclipse.emf.ecore.EObject
-import org.eclipse.emf.ecore.EReference
-import org.eclipse.xtext.scoping.IScope
-import org.eclipse.xtext.scoping.Scopes
-import org.eclipse.xtext.EcoreUtil2
-import dsl.greenhouse.Action
-import dsl.greenhouse.State
-import dsl.greenhouse.RowSensor
-import dsl.greenhouse.RowActuator
-import dsl.greenhouse.RowRuleSet
-import dsl.greenhouse.SettingSensor
-import dsl.greenhouse.SettingActuator
-import dsl.greenhouse.Trigger
-import dsl.greenhouse.SettingValue
-import dsl.greenhouse.SettingAction
-import dsl.greenhouse.GreenhouseActuator
-import dsl.greenhouse.GreenhouseSensor
-import dsl.greenhouse.GreenhouseRuleSet
 import dsl.greenhouse.Controller
+import dsl.greenhouse.GreenhouseActuator
+import dsl.greenhouse.GreenhouseRuleSet
+import dsl.greenhouse.GreenhouseSensor
+import dsl.greenhouse.RowActuator
+import dsl.greenhouse.RowRuleSet
+import dsl.greenhouse.RowSensor
+import dsl.greenhouse.SettingAction
+import dsl.greenhouse.SettingActuator
+import dsl.greenhouse.SettingSensor
+import dsl.greenhouse.SettingValue
+import dsl.greenhouse.State
+import dsl.greenhouse.Trigger
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.xtext.EcoreUtil2
+import org.eclipse.xtext.scoping.Scopes
 
 /**
  * This class contains custom scoping description.

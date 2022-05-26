@@ -28,6 +28,7 @@ import dsl.greenhouse.SettingSensor
 import dsl.greenhouse.SettingActuator
 import dsl.greenhouse.Controller
 import dsl.greenhouse.HardwareSetup
+import dsl.greenhouse.GreenhouseSwitch
 
 /**
  * Generates code from your model files on save.
@@ -180,6 +181,7 @@ class GreenhouseGenerator extends AbstractGenerator {
 	val root = EcoreUtil2.getRootContainer(model);
 	val allSensors = EcoreUtil2.getAllContentsOfType(root, RowSensor).filter[it.controller.name == controller.name]
 	val allGlobalSensors = EcoreUtil2.getAllContentsOfType(root, GreenhouseSensor).filter[it.controller.name == controller.name]
+	val allGreenHouseSwitches = EcoreUtil2.getAllContentsOfType(root,GreenhouseSwitch)
 	
 	return
 	
@@ -192,6 +194,9 @@ class GreenhouseGenerator extends AbstractGenerator {
 	«ENDIF»
 	«model.getAllSensorPreamble(controller)»
 	«model.getAllSensorTimers(controller)»
+	«IF allGreenHouseSwitches.length > 0 && controller.name == "GlobalController"»
+	#define BUTTON_PIN 33
+	«ENDIF»
 	
 	«IF allSensors.size <= 0 && allGlobalSensors.size <= 0»
 	long int sleepMicroSeconds = 60000000;
@@ -295,6 +300,7 @@ class GreenhouseGenerator extends AbstractGenerator {
 		val allGlobalSensors = EcoreUtil2.getAllContentsOfType(root, GreenhouseSensor).filter[it.controller.name == controller.name]
 		val allRowActuators = EcoreUtil2.getAllContentsOfType(root, RowActuator).filter[it.controller.name == controller.name]
 		val allGlobalActuators = EcoreUtil2.getAllContentsOfType(root, GreenhouseActuator).filter[it.controller.name == controller.name]
+		val allGreenHouseSwitches = EcoreUtil2.getAllContentsOfType(root,GreenhouseSwitch)
 		return	'''
 		
 		void debug(const char *s)
@@ -341,6 +347,9 @@ class GreenhouseGenerator extends AbstractGenerator {
 			«FOR actuator: allGlobalActuators»
 			setup«actuator.name»();
 			«ENDFOR»
+			«ENDIF»
+			«IF allGreenHouseSwitches.length > 0 && controller.name == "GlobalController"»
+			pinMode(buttonPin, INPUT_PULLUP); 
 			«ENDIF»
 		}
 		'''
@@ -684,6 +693,7 @@ class GreenhouseGenerator extends AbstractGenerator {
 		val root = EcoreUtil2.getRootContainer(model);
 		val allSensors = EcoreUtil2.getAllContentsOfType(root, RowSensor).filter[it.controller.name == controller.name]
 		val allGlobalSensors = EcoreUtil2.getAllContentsOfType(root, GreenhouseSensor).filter[it.controller.name == controller.name]
+		val allGreenHouseSwitches = EcoreUtil2.getAllContentsOfType(root,GreenhouseSwitch)
 		return '''
 		void loop(){
 			
@@ -720,6 +730,14 @@ class GreenhouseGenerator extends AbstractGenerator {
 				ESP.deepSleep(30e6);
 			}
 	        «ENDIF»
+	        «ENDIF»
+	        «IF allGreenHouseSwitches.length > 0 && controller.name == "GlobalController"»
+	        buttonState = digitalRead(BUTTON_PIN);
+	        if (buttonState = LOW){
+	        		//configure external button as wakeup source
+	        	    esp_sleep_enable_ext0_wakeup(GPIO_NUM_33,0);
+	        	    esp_deep_sleep_start();
+	        	}
 	        «ENDIF»
 		}
 		'''

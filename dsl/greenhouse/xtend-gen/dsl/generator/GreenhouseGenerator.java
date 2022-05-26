@@ -13,6 +13,7 @@ import dsl.greenhouse.Greenhouse;
 import dsl.greenhouse.GreenhouseActuator;
 import dsl.greenhouse.GreenhouseRuleSet;
 import dsl.greenhouse.GreenhouseSensor;
+import dsl.greenhouse.GreenhouseSwitch;
 import dsl.greenhouse.HardwareSetup;
 import dsl.greenhouse.MathNumber;
 import dsl.greenhouse.Minus;
@@ -520,6 +521,7 @@ public class GreenhouseGenerator extends AbstractGenerator {
       return Boolean.valueOf(Objects.equal(_name, _name_1));
     };
     final Iterable<GreenhouseSensor> allGlobalSensors = IterableExtensions.<GreenhouseSensor>filter(EcoreUtil2.<GreenhouseSensor>getAllContentsOfType(root, GreenhouseSensor.class), _function_1);
+    final List<GreenhouseSwitch> allGreenHouseSwitches = EcoreUtil2.<GreenhouseSwitch>getAllContentsOfType(root, GreenhouseSwitch.class);
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("#include <Statistical.h>");
     _builder.newLine();
@@ -541,6 +543,12 @@ public class GreenhouseGenerator extends AbstractGenerator {
     String _allSensorTimers = this.getAllSensorTimers(model, controller);
     _builder.append(_allSensorTimers);
     _builder.newLineIfNotEmpty();
+    {
+      if (((((Object[])Conversions.unwrapArray(allGreenHouseSwitches, Object.class)).length > 0) && Objects.equal(controller.getName(), "GlobalController"))) {
+        _builder.append("#define BUTTON_PIN 33");
+        _builder.newLine();
+      }
+    }
     _builder.newLine();
     {
       if (((IterableExtensions.size(allSensors) <= 0) && (IterableExtensions.size(allGlobalSensors) <= 0))) {
@@ -841,6 +849,7 @@ public class GreenhouseGenerator extends AbstractGenerator {
       return Boolean.valueOf(Objects.equal(_name, _name_1));
     };
     final Iterable<GreenhouseActuator> allGlobalActuators = IterableExtensions.<GreenhouseActuator>filter(EcoreUtil2.<GreenhouseActuator>getAllContentsOfType(root, GreenhouseActuator.class), _function_3);
+    final List<GreenhouseSwitch> allGreenHouseSwitches = EcoreUtil2.<GreenhouseSwitch>getAllContentsOfType(root, GreenhouseSwitch.class);
     StringConcatenation _builder = new StringConcatenation();
     _builder.newLine();
     _builder.append("void debug(const char *s)");
@@ -972,6 +981,13 @@ public class GreenhouseGenerator extends AbstractGenerator {
             _builder.newLineIfNotEmpty();
           }
         }
+      }
+    }
+    {
+      if (((((Object[])Conversions.unwrapArray(allGreenHouseSwitches, Object.class)).length > 0) && Objects.equal(controller.getName(), "GlobalController"))) {
+        _builder.append("\t");
+        _builder.append("pinMode(buttonPin, INPUT_PULLUP); ");
+        _builder.newLine();
       }
     }
     _builder.append("}");
@@ -1904,6 +1920,7 @@ public class GreenhouseGenerator extends AbstractGenerator {
       return Boolean.valueOf(Objects.equal(_name, _name_1));
     };
     final Iterable<GreenhouseSensor> allGlobalSensors = IterableExtensions.<GreenhouseSensor>filter(EcoreUtil2.<GreenhouseSensor>getAllContentsOfType(root, GreenhouseSensor.class), _function_1);
+    final List<GreenhouseSwitch> allGreenHouseSwitches = EcoreUtil2.<GreenhouseSwitch>getAllContentsOfType(root, GreenhouseSwitch.class);
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("void loop(){");
     _builder.newLine();
@@ -2003,6 +2020,32 @@ public class GreenhouseGenerator extends AbstractGenerator {
             _builder.newLine();
           }
         }
+      }
+    }
+    {
+      if (((((Object[])Conversions.unwrapArray(allGreenHouseSwitches, Object.class)).length > 0) && Objects.equal(controller.getName(), "GlobalController"))) {
+        _builder.append("\t        ");
+        _builder.append("buttonState = digitalRead(BUTTON_PIN);");
+        _builder.newLine();
+        _builder.append("\t        ");
+        _builder.append("if (buttonState = LOW){");
+        _builder.newLine();
+        _builder.append("\t        ");
+        _builder.append("\t\t");
+        _builder.append("//configure external button as wakeup source");
+        _builder.newLine();
+        _builder.append("\t        ");
+        _builder.append("\t    ");
+        _builder.append("esp_sleep_enable_ext0_wakeup(GPIO_NUM_33,0);");
+        _builder.newLine();
+        _builder.append("\t        ");
+        _builder.append("\t    ");
+        _builder.append("esp_deep_sleep_start();");
+        _builder.newLine();
+        _builder.append("\t        ");
+        _builder.append("\t");
+        _builder.append("}");
+        _builder.newLine();
       }
     }
     _builder.append("}");
