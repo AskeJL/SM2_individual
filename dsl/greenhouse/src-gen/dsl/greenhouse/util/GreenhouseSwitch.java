@@ -145,6 +145,14 @@ public class GreenhouseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GreenhousePackage.BUTTON:
+      {
+        Button button = (Button)theEObject;
+        T result = caseButton(button);
+        if (result == null) result = caseHardware(button);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GreenhousePackage.SETTING_ACTION:
       {
         SettingAction settingAction = (SettingAction)theEObject;
@@ -180,11 +188,11 @@ public class GreenhouseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GreenhousePackage.GREENHOUSE_SWITCH:
+      case GreenhousePackage.GREENHOUSE_BUTTON:
       {
-        dsl.greenhouse.GreenhouseSwitch greenhouseSwitch = (dsl.greenhouse.GreenhouseSwitch)theEObject;
-        T result = caseGreenhouseSwitch(greenhouseSwitch);
-        if (result == null) result = caseGreenhouseElement(greenhouseSwitch);
+        GreenhouseButton greenhouseButton = (GreenhouseButton)theEObject;
+        T result = caseGreenhouseButton(greenhouseButton);
+        if (result == null) result = caseGreenhouseElement(greenhouseButton);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -192,6 +200,14 @@ public class GreenhouseSwitch<T> extends Switch<T>
       {
         RowElement rowElement = (RowElement)theEObject;
         T result = caseRowElement(rowElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GreenhousePackage.ROW_BUTTON:
+      {
+        RowButton rowButton = (RowButton)theEObject;
+        T result = caseRowButton(rowButton);
+        if (result == null) result = caseRowElement(rowButton);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -483,6 +499,22 @@ public class GreenhouseSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Button</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Button</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseButton(Button object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Setting Action</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -563,17 +595,17 @@ public class GreenhouseSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Switch</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Button</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Switch</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Button</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseGreenhouseSwitch(dsl.greenhouse.GreenhouseSwitch object)
+  public T caseGreenhouseButton(GreenhouseButton object)
   {
     return null;
   }
@@ -590,6 +622,22 @@ public class GreenhouseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseRowElement(RowElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Row Button</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Row Button</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRowButton(RowButton object)
   {
     return null;
   }

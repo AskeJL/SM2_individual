@@ -114,6 +114,15 @@ public interface GreenhouseFactory extends EFactory
   Topic createTopic();
 
   /**
+   * Returns a new object of class '<em>Button</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Button</em>'.
+   * @generated
+   */
+  Button createButton();
+
+  /**
    * Returns a new object of class '<em>Setting Action</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -159,13 +168,13 @@ public interface GreenhouseFactory extends EFactory
   GreenhouseElement createGreenhouseElement();
 
   /**
-   * Returns a new object of class '<em>Switch</em>'.
+   * Returns a new object of class '<em>Button</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Switch</em>'.
+   * @return a new object of class '<em>Button</em>'.
    * @generated
    */
-  GreenhouseSwitch createGreenhouseSwitch();
+  GreenhouseButton createGreenhouseButton();
 
   /**
    * Returns a new object of class '<em>Row Element</em>'.
@@ -175,6 +184,15 @@ public interface GreenhouseFactory extends EFactory
    * @generated
    */
   RowElement createRowElement();
+
+  /**
+   * Returns a new object of class '<em>Row Button</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Row Button</em>'.
+   * @generated
+   */
+  RowButton createRowButton();
 
   /**
    * Returns a new object of class '<em>Actuator</em>'.

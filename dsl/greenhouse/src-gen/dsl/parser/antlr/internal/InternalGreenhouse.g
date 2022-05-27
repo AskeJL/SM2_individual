@@ -248,6 +248,15 @@ ruleHardware returns [EObject current=null]
 			$current = $this_SettingSensor_1.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getHardwareAccess().getButtonParserRuleCall_2());
+		}
+		this_Button_2=ruleButton
+		{
+			$current = $this_Button_2.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -633,6 +642,47 @@ ruleFrequency returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleButton
+entryRuleButton returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getButtonRule()); }
+	iv_ruleButton=ruleButton
+	{ $current=$iv_ruleButton.current; }
+	EOF;
+
+// Rule Button
+ruleButton returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='Button'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getButtonAccess().getButtonKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getButtonAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getButtonRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+	)
+;
+
 // Entry rule entryRuleSettingAction
 entryRuleSettingAction returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getSettingActionRule()); }
@@ -944,25 +994,25 @@ ruleGreenhouseElement returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getGreenhouseElementAccess().getGreenhouseSwitchParserRuleCall_3());
+			newCompositeNode(grammarAccess.getGreenhouseElementAccess().getGreenhouseButtonParserRuleCall_3());
 		}
-		this_GreenhouseSwitch_3=ruleGreenhouseSwitch
+		this_GreenhouseButton_3=ruleGreenhouseButton
 		{
-			$current = $this_GreenhouseSwitch_3.current;
+			$current = $this_GreenhouseButton_3.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
 ;
 
-// Entry rule entryRuleGreenhouseSwitch
-entryRuleGreenhouseSwitch returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getGreenhouseSwitchRule()); }
-	iv_ruleGreenhouseSwitch=ruleGreenhouseSwitch
-	{ $current=$iv_ruleGreenhouseSwitch.current; }
+// Entry rule entryRuleGreenhouseButton
+entryRuleGreenhouseButton returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getGreenhouseButtonRule()); }
+	iv_ruleGreenhouseButton=ruleGreenhouseButton
+	{ $current=$iv_ruleGreenhouseButton.current; }
 	EOF;
 
-// Rule GreenhouseSwitch
-ruleGreenhouseSwitch returns [EObject current=null]
+// Rule GreenhouseButton
+ruleGreenhouseButton returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -970,29 +1020,59 @@ ruleGreenhouseSwitch returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='has'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getGreenhouseSwitchAccess().getHasKeyword_0());
-		}
-		otherlv_1='switch'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getGreenhouseSwitchAccess().getSwitchKeyword_1());
-		}
 		(
 			(
-				lv_name_2_0=RULE_ID
 				{
-					newLeafNode(lv_name_2_0, grammarAccess.getGreenhouseSwitchAccess().getNameIDTerminalRuleCall_2_0());
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getGreenhouseButtonRule());
+					}
+				}
+				otherlv_0=RULE_ID
+				{
+					newLeafNode(otherlv_0, grammarAccess.getGreenhouseButtonAccess().getTypeButtonCrossReference_0_0());
+				}
+			)
+		)
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getGreenhouseButtonAccess().getNameIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getGreenhouseSwitchRule());
+						$current = createModelElement(grammarAccess.getGreenhouseButtonRule());
 					}
 					setWithLastConsumed(
 						$current,
 						"name",
-						lv_name_2_0,
+						lv_name_1_0,
 						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_2='connected'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getGreenhouseButtonAccess().getConnectedKeyword_2());
+		}
+		otherlv_3='to'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getGreenhouseButtonAccess().getToKeyword_3());
+		}
+		otherlv_4='controller'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getGreenhouseButtonAccess().getControllerKeyword_4());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getGreenhouseButtonRule());
+					}
+				}
+				otherlv_5=RULE_ID
+				{
+					newLeafNode(otherlv_5, grammarAccess.getGreenhouseButtonAccess().getControllerControllerCrossReference_5_0());
 				}
 			)
 		)
@@ -1041,6 +1121,117 @@ ruleRowElement returns [EObject current=null]
 			$current = $this_RowRuleSet_2.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getRowElementAccess().getRowButtonParserRuleCall_3());
+		}
+		this_RowButton_3=ruleRowButton
+		{
+			$current = $this_RowButton_3.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleRowButton
+entryRuleRowButton returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getRowButtonRule()); }
+	iv_ruleRowButton=ruleRowButton
+	{ $current=$iv_ruleRowButton.current; }
+	EOF;
+
+// Rule RowButton
+ruleRowButton returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getRowButtonRule());
+					}
+				}
+				otherlv_0=RULE_ID
+				{
+					newLeafNode(otherlv_0, grammarAccess.getRowButtonAccess().getTypeButtonCrossReference_0_0());
+				}
+			)
+		)
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getRowButtonAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getRowButtonRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_2='connected'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getRowButtonAccess().getConnectedKeyword_2());
+		}
+		otherlv_3='to'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getRowButtonAccess().getToKeyword_3());
+		}
+		otherlv_4='controller'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getRowButtonAccess().getControllerKeyword_4());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getRowButtonRule());
+					}
+				}
+				otherlv_5=RULE_ID
+				{
+					newLeafNode(otherlv_5, grammarAccess.getRowButtonAccess().getControllerControllerCrossReference_5_0());
+				}
+			)
+		)
+		otherlv_6='on'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getRowButtonAccess().getOnKeyword_6());
+		}
+		otherlv_7='pin'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getRowButtonAccess().getPinKeyword_7());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getRowButtonAccess().getNumberExpParserRuleCall_8_0());
+				}
+				lv_number_8_0=ruleExp
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getRowButtonRule());
+					}
+					set(
+						$current,
+						"number",
+						lv_number_8_0,
+						"dsl.Greenhouse.Exp");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 

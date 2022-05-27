@@ -75,13 +75,15 @@ public class GreenhouseFactoryImpl extends EFactoryImpl implements GreenhouseFac
       case GreenhousePackage.REDUCER: return createReducer();
       case GreenhousePackage.FREQUENCY: return createFrequency();
       case GreenhousePackage.TOPIC: return createTopic();
+      case GreenhousePackage.BUTTON: return createButton();
       case GreenhousePackage.SETTING_ACTION: return createSettingAction();
       case GreenhousePackage.SETTING_VALUE: return createSettingValue();
       case GreenhousePackage.GREENHOUSE: return createGreenhouse();
       case GreenhousePackage.ROW: return createRow();
       case GreenhousePackage.GREENHOUSE_ELEMENT: return createGreenhouseElement();
-      case GreenhousePackage.GREENHOUSE_SWITCH: return createGreenhouseSwitch();
+      case GreenhousePackage.GREENHOUSE_BUTTON: return createGreenhouseButton();
       case GreenhousePackage.ROW_ELEMENT: return createRowElement();
+      case GreenhousePackage.ROW_BUTTON: return createRowButton();
       case GreenhousePackage.GREENHOUSE_ACTUATOR: return createGreenhouseActuator();
       case GreenhousePackage.ROW_ACTUATOR: return createRowActuator();
       case GreenhousePackage.GREENHOUSE_SENSOR: return createGreenhouseSensor();
@@ -229,6 +231,18 @@ public class GreenhouseFactoryImpl extends EFactoryImpl implements GreenhouseFac
    * @generated
    */
   @Override
+  public Button createButton()
+  {
+    ButtonImpl button = new ButtonImpl();
+    return button;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public SettingAction createSettingAction()
   {
     SettingActionImpl settingAction = new SettingActionImpl();
@@ -289,10 +303,10 @@ public class GreenhouseFactoryImpl extends EFactoryImpl implements GreenhouseFac
    * @generated
    */
   @Override
-  public GreenhouseSwitch createGreenhouseSwitch()
+  public GreenhouseButton createGreenhouseButton()
   {
-    GreenhouseSwitchImpl greenhouseSwitch = new GreenhouseSwitchImpl();
-    return greenhouseSwitch;
+    GreenhouseButtonImpl greenhouseButton = new GreenhouseButtonImpl();
+    return greenhouseButton;
   }
 
   /**
@@ -305,6 +319,18 @@ public class GreenhouseFactoryImpl extends EFactoryImpl implements GreenhouseFac
   {
     RowElementImpl rowElement = new RowElementImpl();
     return rowElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RowButton createRowButton()
+  {
+    RowButtonImpl rowButton = new RowButtonImpl();
+    return rowButton;
   }
 
   /**

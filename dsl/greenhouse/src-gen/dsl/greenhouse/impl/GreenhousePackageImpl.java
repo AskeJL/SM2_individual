@@ -4,6 +4,7 @@
 package dsl.greenhouse.impl;
 
 import dsl.greenhouse.Action;
+import dsl.greenhouse.Button;
 import dsl.greenhouse.Controller;
 import dsl.greenhouse.ControllerType;
 import dsl.greenhouse.Div;
@@ -11,12 +12,12 @@ import dsl.greenhouse.Expression;
 import dsl.greenhouse.Frequency;
 import dsl.greenhouse.Greenhouse;
 import dsl.greenhouse.GreenhouseActuator;
+import dsl.greenhouse.GreenhouseButton;
 import dsl.greenhouse.GreenhouseElement;
 import dsl.greenhouse.GreenhouseFactory;
 import dsl.greenhouse.GreenhousePackage;
 import dsl.greenhouse.GreenhouseRuleSet;
 import dsl.greenhouse.GreenhouseSensor;
-import dsl.greenhouse.GreenhouseSwitch;
 import dsl.greenhouse.Hardware;
 import dsl.greenhouse.HardwareSetup;
 import dsl.greenhouse.MathNumber;
@@ -27,6 +28,7 @@ import dsl.greenhouse.Plus;
 import dsl.greenhouse.Reducer;
 import dsl.greenhouse.Row;
 import dsl.greenhouse.RowActuator;
+import dsl.greenhouse.RowButton;
 import dsl.greenhouse.RowElement;
 import dsl.greenhouse.RowRuleSet;
 import dsl.greenhouse.RowSensor;
@@ -129,6 +131,13 @@ public class GreenhousePackageImpl extends EPackageImpl implements GreenhousePac
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass buttonEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass settingActionEClass = null;
 
   /**
@@ -164,7 +173,7 @@ public class GreenhousePackageImpl extends EPackageImpl implements GreenhousePac
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass greenhouseSwitchEClass = null;
+  private EClass greenhouseButtonEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -172,6 +181,13 @@ public class GreenhousePackageImpl extends EPackageImpl implements GreenhousePac
    * @generated
    */
   private EClass rowElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass rowButtonEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -629,6 +645,17 @@ public class GreenhousePackageImpl extends EPackageImpl implements GreenhousePac
    * @generated
    */
   @Override
+  public EClass getButton()
+  {
+    return buttonEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getSettingAction()
   {
     return settingActionEClass;
@@ -772,9 +799,9 @@ public class GreenhousePackageImpl extends EPackageImpl implements GreenhousePac
    * @generated
    */
   @Override
-  public EClass getGreenhouseSwitch()
+  public EClass getGreenhouseButton()
   {
-    return greenhouseSwitchEClass;
+    return greenhouseButtonEClass;
   }
 
   /**
@@ -783,9 +810,31 @@ public class GreenhousePackageImpl extends EPackageImpl implements GreenhousePac
    * @generated
    */
   @Override
-  public EAttribute getGreenhouseSwitch_Name()
+  public EReference getGreenhouseButton_Type()
   {
-    return (EAttribute)greenhouseSwitchEClass.getEStructuralFeatures().get(0);
+    return (EReference)greenhouseButtonEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getGreenhouseButton_Name()
+  {
+    return (EAttribute)greenhouseButtonEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getGreenhouseButton_Controller()
+  {
+    return (EReference)greenhouseButtonEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -797,6 +846,61 @@ public class GreenhousePackageImpl extends EPackageImpl implements GreenhousePac
   public EClass getRowElement()
   {
     return rowElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getRowButton()
+  {
+    return rowButtonEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRowButton_Type()
+  {
+    return (EReference)rowButtonEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getRowButton_Name()
+  {
+    return (EAttribute)rowButtonEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRowButton_Controller()
+  {
+    return (EReference)rowButtonEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRowButton_Number()
+  {
+    return (EReference)rowButtonEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1536,6 +1640,8 @@ public class GreenhousePackageImpl extends EPackageImpl implements GreenhousePac
     topicEClass = createEClass(TOPIC);
     createEAttribute(topicEClass, TOPIC__NAME);
 
+    buttonEClass = createEClass(BUTTON);
+
     settingActionEClass = createEClass(SETTING_ACTION);
     createEAttribute(settingActionEClass, SETTING_ACTION__NAME);
     createEReference(settingActionEClass, SETTING_ACTION__SETTING_VALUE);
@@ -1554,10 +1660,18 @@ public class GreenhousePackageImpl extends EPackageImpl implements GreenhousePac
 
     greenhouseElementEClass = createEClass(GREENHOUSE_ELEMENT);
 
-    greenhouseSwitchEClass = createEClass(GREENHOUSE_SWITCH);
-    createEAttribute(greenhouseSwitchEClass, GREENHOUSE_SWITCH__NAME);
+    greenhouseButtonEClass = createEClass(GREENHOUSE_BUTTON);
+    createEReference(greenhouseButtonEClass, GREENHOUSE_BUTTON__TYPE);
+    createEAttribute(greenhouseButtonEClass, GREENHOUSE_BUTTON__NAME);
+    createEReference(greenhouseButtonEClass, GREENHOUSE_BUTTON__CONTROLLER);
 
     rowElementEClass = createEClass(ROW_ELEMENT);
+
+    rowButtonEClass = createEClass(ROW_BUTTON);
+    createEReference(rowButtonEClass, ROW_BUTTON__TYPE);
+    createEAttribute(rowButtonEClass, ROW_BUTTON__NAME);
+    createEReference(rowButtonEClass, ROW_BUTTON__CONTROLLER);
+    createEReference(rowButtonEClass, ROW_BUTTON__NUMBER);
 
     greenhouseActuatorEClass = createEClass(GREENHOUSE_ACTUATOR);
     createEReference(greenhouseActuatorEClass, GREENHOUSE_ACTUATOR__TYPE);
@@ -1668,7 +1782,9 @@ public class GreenhousePackageImpl extends EPackageImpl implements GreenhousePac
     // Add supertypes to classes
     settingActuatorEClass.getESuperTypes().add(this.getHardware());
     settingSensorEClass.getESuperTypes().add(this.getHardware());
-    greenhouseSwitchEClass.getESuperTypes().add(this.getGreenhouseElement());
+    buttonEClass.getESuperTypes().add(this.getHardware());
+    greenhouseButtonEClass.getESuperTypes().add(this.getGreenhouseElement());
+    rowButtonEClass.getESuperTypes().add(this.getRowElement());
     greenhouseActuatorEClass.getESuperTypes().add(this.getGreenhouseElement());
     rowActuatorEClass.getESuperTypes().add(this.getRowElement());
     greenhouseSensorEClass.getESuperTypes().add(this.getGreenhouseElement());
@@ -1717,6 +1833,8 @@ public class GreenhousePackageImpl extends EPackageImpl implements GreenhousePac
     initEClass(topicEClass, Topic.class, "Topic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTopic_Name(), ecorePackage.getEString(), "name", null, 0, 1, Topic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
     initEClass(settingActionEClass, SettingAction.class, "SettingAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSettingAction_Name(), ecorePackage.getEString(), "name", null, 0, 1, SettingAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSettingAction_SettingValue(), this.getSettingValue(), null, "settingValue", null, 0, -1, SettingAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1735,10 +1853,18 @@ public class GreenhousePackageImpl extends EPackageImpl implements GreenhousePac
 
     initEClass(greenhouseElementEClass, GreenhouseElement.class, "GreenhouseElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(greenhouseSwitchEClass, GreenhouseSwitch.class, "GreenhouseSwitch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getGreenhouseSwitch_Name(), ecorePackage.getEString(), "name", null, 0, 1, GreenhouseSwitch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(greenhouseButtonEClass, GreenhouseButton.class, "GreenhouseButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getGreenhouseButton_Type(), this.getButton(), null, "type", null, 0, 1, GreenhouseButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getGreenhouseButton_Name(), ecorePackage.getEString(), "name", null, 0, 1, GreenhouseButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGreenhouseButton_Controller(), this.getController(), null, "controller", null, 0, 1, GreenhouseButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(rowElementEClass, RowElement.class, "RowElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(rowButtonEClass, RowButton.class, "RowButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRowButton_Type(), this.getButton(), null, "type", null, 0, 1, RowButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRowButton_Name(), ecorePackage.getEString(), "name", null, 0, 1, RowButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRowButton_Controller(), this.getController(), null, "controller", null, 0, 1, RowButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRowButton_Number(), this.getExpression(), null, "number", null, 0, 1, RowButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(greenhouseActuatorEClass, GreenhouseActuator.class, "GreenhouseActuator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getGreenhouseActuator_Type(), this.getSettingActuator(), null, "type", null, 0, 1, GreenhouseActuator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

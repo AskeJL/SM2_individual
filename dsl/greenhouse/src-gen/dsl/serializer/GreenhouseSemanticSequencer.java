@@ -4,16 +4,17 @@
 package dsl.serializer;
 
 import com.google.inject.Inject;
+import dsl.greenhouse.Button;
 import dsl.greenhouse.Controller;
 import dsl.greenhouse.ControllerType;
 import dsl.greenhouse.Div;
 import dsl.greenhouse.Frequency;
 import dsl.greenhouse.Greenhouse;
 import dsl.greenhouse.GreenhouseActuator;
+import dsl.greenhouse.GreenhouseButton;
 import dsl.greenhouse.GreenhousePackage;
 import dsl.greenhouse.GreenhouseRuleSet;
 import dsl.greenhouse.GreenhouseSensor;
-import dsl.greenhouse.GreenhouseSwitch;
 import dsl.greenhouse.HardwareSetup;
 import dsl.greenhouse.MathNumber;
 import dsl.greenhouse.Minus;
@@ -23,6 +24,7 @@ import dsl.greenhouse.Plus;
 import dsl.greenhouse.Reducer;
 import dsl.greenhouse.Row;
 import dsl.greenhouse.RowActuator;
+import dsl.greenhouse.RowButton;
 import dsl.greenhouse.RowRuleSet;
 import dsl.greenhouse.RowSensor;
 import dsl.greenhouse.SettingAction;
@@ -62,6 +64,9 @@ public class GreenhouseSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case GreenhousePackage.ACTION:
 				sequence_Action(context, (dsl.greenhouse.Action) semanticObject); 
 				return; 
+			case GreenhousePackage.BUTTON:
+				sequence_Button(context, (Button) semanticObject); 
+				return; 
 			case GreenhousePackage.CONTROLLER:
 				sequence_Controller(context, (Controller) semanticObject); 
 				return; 
@@ -80,14 +85,14 @@ public class GreenhouseSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case GreenhousePackage.GREENHOUSE_ACTUATOR:
 				sequence_GreenhouseActuator(context, (GreenhouseActuator) semanticObject); 
 				return; 
+			case GreenhousePackage.GREENHOUSE_BUTTON:
+				sequence_GreenhouseButton(context, (GreenhouseButton) semanticObject); 
+				return; 
 			case GreenhousePackage.GREENHOUSE_RULE_SET:
 				sequence_GreenhouseRuleSet(context, (GreenhouseRuleSet) semanticObject); 
 				return; 
 			case GreenhousePackage.GREENHOUSE_SENSOR:
 				sequence_GreenhouseSensor(context, (GreenhouseSensor) semanticObject); 
-				return; 
-			case GreenhousePackage.GREENHOUSE_SWITCH:
-				sequence_GreenhouseSwitch(context, (GreenhouseSwitch) semanticObject); 
 				return; 
 			case GreenhousePackage.HARDWARE_SETUP:
 				sequence_HardwareSetup(context, (HardwareSetup) semanticObject); 
@@ -115,6 +120,9 @@ public class GreenhouseSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case GreenhousePackage.ROW_ACTUATOR:
 				sequence_RowActuator(context, (RowActuator) semanticObject); 
+				return; 
+			case GreenhousePackage.ROW_BUTTON:
+				sequence_RowButton(context, (RowButton) semanticObject); 
 				return; 
 			case GreenhousePackage.ROW_RULE_SET:
 				sequence_RowRuleSet(context, (RowRuleSet) semanticObject); 
@@ -171,6 +179,25 @@ public class GreenhouseSemanticSequencer extends AbstractDelegatingSemanticSeque
 		feeder.accept(grammarAccess.getActionAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getActionAccess().getValueSettingValueIDTerminalRuleCall_1_0_1(), semanticObject.eGet(GreenhousePackage.Literals.ACTION__VALUE, false));
 		feeder.accept(grammarAccess.getActionAccess().getTriggerTriggerParserRuleCall_4_0(), semanticObject.getTrigger());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Hardware returns Button
+	 *     Button returns Button
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_Button(ISerializationContext context, Button semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GreenhousePackage.Literals.HARDWARE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GreenhousePackage.Literals.HARDWARE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getButtonAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -349,6 +376,31 @@ public class GreenhouseSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     GreenhouseElement returns GreenhouseButton
+	 *     GreenhouseButton returns GreenhouseButton
+	 *
+	 * Constraint:
+	 *     (type=[Button|ID] name=ID controller=[Controller|ID])
+	 */
+	protected void sequence_GreenhouseButton(ISerializationContext context, GreenhouseButton semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GreenhousePackage.Literals.GREENHOUSE_BUTTON__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GreenhousePackage.Literals.GREENHOUSE_BUTTON__TYPE));
+			if (transientValues.isValueTransient(semanticObject, GreenhousePackage.Literals.GREENHOUSE_BUTTON__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GreenhousePackage.Literals.GREENHOUSE_BUTTON__NAME));
+			if (transientValues.isValueTransient(semanticObject, GreenhousePackage.Literals.GREENHOUSE_BUTTON__CONTROLLER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GreenhousePackage.Literals.GREENHOUSE_BUTTON__CONTROLLER));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getGreenhouseButtonAccess().getTypeButtonIDTerminalRuleCall_0_0_1(), semanticObject.eGet(GreenhousePackage.Literals.GREENHOUSE_BUTTON__TYPE, false));
+		feeder.accept(grammarAccess.getGreenhouseButtonAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getGreenhouseButtonAccess().getControllerControllerIDTerminalRuleCall_5_0_1(), semanticObject.eGet(GreenhousePackage.Literals.GREENHOUSE_BUTTON__CONTROLLER, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     GreenhouseElement returns GreenhouseRuleSet
 	 *     GreenhouseRuleSet returns GreenhouseRuleSet
 	 *
@@ -395,25 +447,6 @@ public class GreenhouseSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_GreenhouseSensor(ISerializationContext context, GreenhouseSensor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     GreenhouseElement returns GreenhouseSwitch
-	 *     GreenhouseSwitch returns GreenhouseSwitch
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_GreenhouseSwitch(ISerializationContext context, GreenhouseSwitch semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GreenhousePackage.Literals.GREENHOUSE_SWITCH__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GreenhousePackage.Literals.GREENHOUSE_SWITCH__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getGreenhouseSwitchAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
-		feeder.finish();
 	}
 	
 	
@@ -499,6 +532,34 @@ public class GreenhouseSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_RowActuator(ISerializationContext context, RowActuator semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     RowElement returns RowButton
+	 *     RowButton returns RowButton
+	 *
+	 * Constraint:
+	 *     (type=[Button|ID] name=ID controller=[Controller|ID] number=Exp)
+	 */
+	protected void sequence_RowButton(ISerializationContext context, RowButton semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GreenhousePackage.Literals.ROW_BUTTON__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GreenhousePackage.Literals.ROW_BUTTON__TYPE));
+			if (transientValues.isValueTransient(semanticObject, GreenhousePackage.Literals.ROW_BUTTON__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GreenhousePackage.Literals.ROW_BUTTON__NAME));
+			if (transientValues.isValueTransient(semanticObject, GreenhousePackage.Literals.ROW_BUTTON__CONTROLLER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GreenhousePackage.Literals.ROW_BUTTON__CONTROLLER));
+			if (transientValues.isValueTransient(semanticObject, GreenhousePackage.Literals.ROW_BUTTON__NUMBER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GreenhousePackage.Literals.ROW_BUTTON__NUMBER));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRowButtonAccess().getTypeButtonIDTerminalRuleCall_0_0_1(), semanticObject.eGet(GreenhousePackage.Literals.ROW_BUTTON__TYPE, false));
+		feeder.accept(grammarAccess.getRowButtonAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getRowButtonAccess().getControllerControllerIDTerminalRuleCall_5_0_1(), semanticObject.eGet(GreenhousePackage.Literals.ROW_BUTTON__CONTROLLER, false));
+		feeder.accept(grammarAccess.getRowButtonAccess().getNumberExpParserRuleCall_8_0(), semanticObject.getNumber());
+		feeder.finish();
 	}
 	
 	

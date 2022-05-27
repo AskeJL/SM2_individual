@@ -48,11 +48,13 @@ public class GreenhouseParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getControllerAccess().getGroup(), "rule__Controller__Group__0");
 			builder.put(grammarAccess.getFrequencyAccess().getGroup(), "rule__Frequency__Group__0");
 			builder.put(grammarAccess.getTopicAccess().getGroup(), "rule__Topic__Group__0");
+			builder.put(grammarAccess.getButtonAccess().getGroup(), "rule__Button__Group__0");
 			builder.put(grammarAccess.getSettingActionAccess().getGroup(), "rule__SettingAction__Group__0");
 			builder.put(grammarAccess.getSettingActionAccess().getGroup_4(), "rule__SettingAction__Group_4__0");
 			builder.put(grammarAccess.getGreenhouseAccess().getGroup(), "rule__Greenhouse__Group__0");
 			builder.put(grammarAccess.getRowAccess().getGroup(), "rule__Row__Group__0");
-			builder.put(grammarAccess.getGreenhouseSwitchAccess().getGroup(), "rule__GreenhouseSwitch__Group__0");
+			builder.put(grammarAccess.getGreenhouseButtonAccess().getGroup(), "rule__GreenhouseButton__Group__0");
+			builder.put(grammarAccess.getRowButtonAccess().getGroup(), "rule__RowButton__Group__0");
 			builder.put(grammarAccess.getGreenhouseActuatorAccess().getGroup(), "rule__GreenhouseActuator__Group__0");
 			builder.put(grammarAccess.getGreenhouseActuatorAccess().getGroup_6(), "rule__GreenhouseActuator__Group_6__0");
 			builder.put(grammarAccess.getGreenhouseActuatorAccess().getGroup_7(), "rule__GreenhouseActuator__Group_7__0");
@@ -96,6 +98,7 @@ public class GreenhouseParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getReducerAccess().getNameAssignment(), "rule__Reducer__NameAssignment");
 			builder.put(grammarAccess.getFrequencyAccess().getFreqAssignment_0(), "rule__Frequency__FreqAssignment_0");
 			builder.put(grammarAccess.getTopicAccess().getNameAssignment_1(), "rule__Topic__NameAssignment_1");
+			builder.put(grammarAccess.getButtonAccess().getNameAssignment_1(), "rule__Button__NameAssignment_1");
 			builder.put(grammarAccess.getSettingActionAccess().getNameAssignment_0(), "rule__SettingAction__NameAssignment_0");
 			builder.put(grammarAccess.getSettingActionAccess().getSettingValueAssignment_3(), "rule__SettingAction__SettingValueAssignment_3");
 			builder.put(grammarAccess.getSettingActionAccess().getSettingValueAssignment_4_1(), "rule__SettingAction__SettingValueAssignment_4_1");
@@ -105,7 +108,13 @@ public class GreenhouseParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getGreenhouseAccess().getElementsAssignment_3(), "rule__Greenhouse__ElementsAssignment_3");
 			builder.put(grammarAccess.getRowAccess().getNameAssignment_1(), "rule__Row__NameAssignment_1");
 			builder.put(grammarAccess.getRowAccess().getElementsAssignment_3(), "rule__Row__ElementsAssignment_3");
-			builder.put(grammarAccess.getGreenhouseSwitchAccess().getNameAssignment_2(), "rule__GreenhouseSwitch__NameAssignment_2");
+			builder.put(grammarAccess.getGreenhouseButtonAccess().getTypeAssignment_0(), "rule__GreenhouseButton__TypeAssignment_0");
+			builder.put(grammarAccess.getGreenhouseButtonAccess().getNameAssignment_1(), "rule__GreenhouseButton__NameAssignment_1");
+			builder.put(grammarAccess.getGreenhouseButtonAccess().getControllerAssignment_5(), "rule__GreenhouseButton__ControllerAssignment_5");
+			builder.put(grammarAccess.getRowButtonAccess().getTypeAssignment_0(), "rule__RowButton__TypeAssignment_0");
+			builder.put(grammarAccess.getRowButtonAccess().getNameAssignment_1(), "rule__RowButton__NameAssignment_1");
+			builder.put(grammarAccess.getRowButtonAccess().getControllerAssignment_5(), "rule__RowButton__ControllerAssignment_5");
+			builder.put(grammarAccess.getRowButtonAccess().getNumberAssignment_8(), "rule__RowButton__NumberAssignment_8");
 			builder.put(grammarAccess.getGreenhouseActuatorAccess().getTypeAssignment_1(), "rule__GreenhouseActuator__TypeAssignment_1");
 			builder.put(grammarAccess.getGreenhouseActuatorAccess().getNameAssignment_2(), "rule__GreenhouseActuator__NameAssignment_2");
 			builder.put(grammarAccess.getGreenhouseActuatorAccess().getControllerAssignment_5(), "rule__GreenhouseActuator__ControllerAssignment_5");

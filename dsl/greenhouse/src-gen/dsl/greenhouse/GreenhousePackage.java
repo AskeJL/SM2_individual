@@ -401,6 +401,34 @@ public interface GreenhousePackage extends EPackage
   int TOPIC_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link dsl.greenhouse.impl.ButtonImpl <em>Button</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dsl.greenhouse.impl.ButtonImpl
+   * @see dsl.greenhouse.impl.GreenhousePackageImpl#getButton()
+   * @generated
+   */
+  int BUTTON = 10;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__NAME = HARDWARE__NAME;
+
+  /**
+   * The number of structural features of the '<em>Button</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON_FEATURE_COUNT = HARDWARE_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link dsl.greenhouse.impl.SettingActionImpl <em>Setting Action</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -408,7 +436,7 @@ public interface GreenhousePackage extends EPackage
    * @see dsl.greenhouse.impl.GreenhousePackageImpl#getSettingAction()
    * @generated
    */
-  int SETTING_ACTION = 10;
+  int SETTING_ACTION = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -445,7 +473,7 @@ public interface GreenhousePackage extends EPackage
    * @see dsl.greenhouse.impl.GreenhousePackageImpl#getSettingValue()
    * @generated
    */
-  int SETTING_VALUE = 11;
+  int SETTING_VALUE = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -473,7 +501,7 @@ public interface GreenhousePackage extends EPackage
    * @see dsl.greenhouse.impl.GreenhousePackageImpl#getGreenhouse()
    * @generated
    */
-  int GREENHOUSE = 12;
+  int GREENHOUSE = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -519,7 +547,7 @@ public interface GreenhousePackage extends EPackage
    * @see dsl.greenhouse.impl.GreenhousePackageImpl#getRow()
    * @generated
    */
-  int ROW = 13;
+  int ROW = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -556,7 +584,7 @@ public interface GreenhousePackage extends EPackage
    * @see dsl.greenhouse.impl.GreenhousePackageImpl#getGreenhouseElement()
    * @generated
    */
-  int GREENHOUSE_ELEMENT = 14;
+  int GREENHOUSE_ELEMENT = 15;
 
   /**
    * The number of structural features of the '<em>Element</em>' class.
@@ -568,14 +596,23 @@ public interface GreenhousePackage extends EPackage
   int GREENHOUSE_ELEMENT_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link dsl.greenhouse.impl.GreenhouseSwitchImpl <em>Switch</em>}' class.
+   * The meta object id for the '{@link dsl.greenhouse.impl.GreenhouseButtonImpl <em>Button</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see dsl.greenhouse.impl.GreenhouseSwitchImpl
-   * @see dsl.greenhouse.impl.GreenhousePackageImpl#getGreenhouseSwitch()
+   * @see dsl.greenhouse.impl.GreenhouseButtonImpl
+   * @see dsl.greenhouse.impl.GreenhousePackageImpl#getGreenhouseButton()
    * @generated
    */
-  int GREENHOUSE_SWITCH = 15;
+  int GREENHOUSE_BUTTON = 16;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GREENHOUSE_BUTTON__TYPE = GREENHOUSE_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -584,16 +621,25 @@ public interface GreenhousePackage extends EPackage
    * @generated
    * @ordered
    */
-  int GREENHOUSE_SWITCH__NAME = GREENHOUSE_ELEMENT_FEATURE_COUNT + 0;
+  int GREENHOUSE_BUTTON__NAME = GREENHOUSE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Switch</em>' class.
+   * The feature id for the '<em><b>Controller</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GREENHOUSE_SWITCH_FEATURE_COUNT = GREENHOUSE_ELEMENT_FEATURE_COUNT + 1;
+  int GREENHOUSE_BUTTON__CONTROLLER = GREENHOUSE_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Button</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GREENHOUSE_BUTTON_FEATURE_COUNT = GREENHOUSE_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link dsl.greenhouse.impl.RowElementImpl <em>Row Element</em>}' class.
@@ -603,7 +649,7 @@ public interface GreenhousePackage extends EPackage
    * @see dsl.greenhouse.impl.GreenhousePackageImpl#getRowElement()
    * @generated
    */
-  int ROW_ELEMENT = 16;
+  int ROW_ELEMENT = 17;
 
   /**
    * The number of structural features of the '<em>Row Element</em>' class.
@@ -615,6 +661,61 @@ public interface GreenhousePackage extends EPackage
   int ROW_ELEMENT_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link dsl.greenhouse.impl.RowButtonImpl <em>Row Button</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dsl.greenhouse.impl.RowButtonImpl
+   * @see dsl.greenhouse.impl.GreenhousePackageImpl#getRowButton()
+   * @generated
+   */
+  int ROW_BUTTON = 18;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROW_BUTTON__TYPE = ROW_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROW_BUTTON__NAME = ROW_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Controller</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROW_BUTTON__CONTROLLER = ROW_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Number</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROW_BUTTON__NUMBER = ROW_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>Row Button</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROW_BUTTON_FEATURE_COUNT = ROW_ELEMENT_FEATURE_COUNT + 4;
+
+  /**
    * The meta object id for the '{@link dsl.greenhouse.impl.GreenhouseActuatorImpl <em>Actuator</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -622,7 +723,7 @@ public interface GreenhousePackage extends EPackage
    * @see dsl.greenhouse.impl.GreenhousePackageImpl#getGreenhouseActuator()
    * @generated
    */
-  int GREENHOUSE_ACTUATOR = 17;
+  int GREENHOUSE_ACTUATOR = 19;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -677,7 +778,7 @@ public interface GreenhousePackage extends EPackage
    * @see dsl.greenhouse.impl.GreenhousePackageImpl#getRowActuator()
    * @generated
    */
-  int ROW_ACTUATOR = 18;
+  int ROW_ACTUATOR = 20;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -732,7 +833,7 @@ public interface GreenhousePackage extends EPackage
    * @see dsl.greenhouse.impl.GreenhousePackageImpl#getGreenhouseSensor()
    * @generated
    */
-  int GREENHOUSE_SENSOR = 19;
+  int GREENHOUSE_SENSOR = 21;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -796,7 +897,7 @@ public interface GreenhousePackage extends EPackage
    * @see dsl.greenhouse.impl.GreenhousePackageImpl#getRowSensor()
    * @generated
    */
-  int ROW_SENSOR = 20;
+  int ROW_SENSOR = 22;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -860,7 +961,7 @@ public interface GreenhousePackage extends EPackage
    * @see dsl.greenhouse.impl.GreenhousePackageImpl#getState()
    * @generated
    */
-  int STATE = 21;
+  int STATE = 23;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -915,7 +1016,7 @@ public interface GreenhousePackage extends EPackage
    * @see dsl.greenhouse.impl.GreenhousePackageImpl#getVariable()
    * @generated
    */
-  int VARIABLE = 22;
+  int VARIABLE = 24;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -943,7 +1044,7 @@ public interface GreenhousePackage extends EPackage
    * @see dsl.greenhouse.impl.GreenhousePackageImpl#getAction()
    * @generated
    */
-  int ACTION = 23;
+  int ACTION = 25;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -989,7 +1090,7 @@ public interface GreenhousePackage extends EPackage
    * @see dsl.greenhouse.impl.GreenhousePackageImpl#getTrigger()
    * @generated
    */
-  int TRIGGER = 24;
+  int TRIGGER = 26;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1017,7 +1118,7 @@ public interface GreenhousePackage extends EPackage
    * @see dsl.greenhouse.impl.GreenhousePackageImpl#getRowRuleSet()
    * @generated
    */
-  int ROW_RULE_SET = 25;
+  int ROW_RULE_SET = 27;
 
   /**
    * The feature id for the '<em><b>Trigger</b></em>' reference.
@@ -1072,7 +1173,7 @@ public interface GreenhousePackage extends EPackage
    * @see dsl.greenhouse.impl.GreenhousePackageImpl#getGreenhouseRuleSet()
    * @generated
    */
-  int GREENHOUSE_RULE_SET = 26;
+  int GREENHOUSE_RULE_SET = 28;
 
   /**
    * The feature id for the '<em><b>Actuator</b></em>' reference.
@@ -1136,7 +1237,7 @@ public interface GreenhousePackage extends EPackage
    * @see dsl.greenhouse.impl.GreenhousePackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 27;
+  int EXPRESSION = 29;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -1155,7 +1256,7 @@ public interface GreenhousePackage extends EPackage
    * @see dsl.greenhouse.impl.GreenhousePackageImpl#getPlus()
    * @generated
    */
-  int PLUS = 28;
+  int PLUS = 30;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1192,7 +1293,7 @@ public interface GreenhousePackage extends EPackage
    * @see dsl.greenhouse.impl.GreenhousePackageImpl#getMinus()
    * @generated
    */
-  int MINUS = 29;
+  int MINUS = 31;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1229,7 +1330,7 @@ public interface GreenhousePackage extends EPackage
    * @see dsl.greenhouse.impl.GreenhousePackageImpl#getMult()
    * @generated
    */
-  int MULT = 30;
+  int MULT = 32;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1266,7 +1367,7 @@ public interface GreenhousePackage extends EPackage
    * @see dsl.greenhouse.impl.GreenhousePackageImpl#getDiv()
    * @generated
    */
-  int DIV = 31;
+  int DIV = 33;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1303,7 +1404,7 @@ public interface GreenhousePackage extends EPackage
    * @see dsl.greenhouse.impl.GreenhousePackageImpl#getMathNumber()
    * @generated
    */
-  int MATH_NUMBER = 32;
+  int MATH_NUMBER = 34;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1590,6 +1691,16 @@ public interface GreenhousePackage extends EPackage
   EAttribute getTopic_Name();
 
   /**
+   * Returns the meta object for class '{@link dsl.greenhouse.Button <em>Button</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Button</em>'.
+   * @see dsl.greenhouse.Button
+   * @generated
+   */
+  EClass getButton();
+
+  /**
    * Returns the meta object for class '{@link dsl.greenhouse.SettingAction <em>Setting Action</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1728,25 +1839,47 @@ public interface GreenhousePackage extends EPackage
   EClass getGreenhouseElement();
 
   /**
-   * Returns the meta object for class '{@link dsl.greenhouse.GreenhouseSwitch <em>Switch</em>}'.
+   * Returns the meta object for class '{@link dsl.greenhouse.GreenhouseButton <em>Button</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Switch</em>'.
-   * @see dsl.greenhouse.GreenhouseSwitch
+   * @return the meta object for class '<em>Button</em>'.
+   * @see dsl.greenhouse.GreenhouseButton
    * @generated
    */
-  EClass getGreenhouseSwitch();
+  EClass getGreenhouseButton();
 
   /**
-   * Returns the meta object for the attribute '{@link dsl.greenhouse.GreenhouseSwitch#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link dsl.greenhouse.GreenhouseButton#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see dsl.greenhouse.GreenhouseButton#getType()
+   * @see #getGreenhouseButton()
+   * @generated
+   */
+  EReference getGreenhouseButton_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link dsl.greenhouse.GreenhouseButton#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see dsl.greenhouse.GreenhouseSwitch#getName()
-   * @see #getGreenhouseSwitch()
+   * @see dsl.greenhouse.GreenhouseButton#getName()
+   * @see #getGreenhouseButton()
    * @generated
    */
-  EAttribute getGreenhouseSwitch_Name();
+  EAttribute getGreenhouseButton_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link dsl.greenhouse.GreenhouseButton#getController <em>Controller</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Controller</em>'.
+   * @see dsl.greenhouse.GreenhouseButton#getController()
+   * @see #getGreenhouseButton()
+   * @generated
+   */
+  EReference getGreenhouseButton_Controller();
 
   /**
    * Returns the meta object for class '{@link dsl.greenhouse.RowElement <em>Row Element</em>}'.
@@ -1757,6 +1890,60 @@ public interface GreenhousePackage extends EPackage
    * @generated
    */
   EClass getRowElement();
+
+  /**
+   * Returns the meta object for class '{@link dsl.greenhouse.RowButton <em>Row Button</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Row Button</em>'.
+   * @see dsl.greenhouse.RowButton
+   * @generated
+   */
+  EClass getRowButton();
+
+  /**
+   * Returns the meta object for the reference '{@link dsl.greenhouse.RowButton#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see dsl.greenhouse.RowButton#getType()
+   * @see #getRowButton()
+   * @generated
+   */
+  EReference getRowButton_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link dsl.greenhouse.RowButton#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see dsl.greenhouse.RowButton#getName()
+   * @see #getRowButton()
+   * @generated
+   */
+  EAttribute getRowButton_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link dsl.greenhouse.RowButton#getController <em>Controller</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Controller</em>'.
+   * @see dsl.greenhouse.RowButton#getController()
+   * @see #getRowButton()
+   * @generated
+   */
+  EReference getRowButton_Controller();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dsl.greenhouse.RowButton#getNumber <em>Number</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Number</em>'.
+   * @see dsl.greenhouse.RowButton#getNumber()
+   * @see #getRowButton()
+   * @generated
+   */
+  EReference getRowButton_Number();
 
   /**
    * Returns the meta object for class '{@link dsl.greenhouse.GreenhouseActuator <em>Actuator</em>}'.
@@ -2657,6 +2844,16 @@ public interface GreenhousePackage extends EPackage
     EAttribute TOPIC__NAME = eINSTANCE.getTopic_Name();
 
     /**
+     * The meta object literal for the '{@link dsl.greenhouse.impl.ButtonImpl <em>Button</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dsl.greenhouse.impl.ButtonImpl
+     * @see dsl.greenhouse.impl.GreenhousePackageImpl#getButton()
+     * @generated
+     */
+    EClass BUTTON = eINSTANCE.getButton();
+
+    /**
      * The meta object literal for the '{@link dsl.greenhouse.impl.SettingActionImpl <em>Setting Action</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2771,14 +2968,22 @@ public interface GreenhousePackage extends EPackage
     EClass GREENHOUSE_ELEMENT = eINSTANCE.getGreenhouseElement();
 
     /**
-     * The meta object literal for the '{@link dsl.greenhouse.impl.GreenhouseSwitchImpl <em>Switch</em>}' class.
+     * The meta object literal for the '{@link dsl.greenhouse.impl.GreenhouseButtonImpl <em>Button</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see dsl.greenhouse.impl.GreenhouseSwitchImpl
-     * @see dsl.greenhouse.impl.GreenhousePackageImpl#getGreenhouseSwitch()
+     * @see dsl.greenhouse.impl.GreenhouseButtonImpl
+     * @see dsl.greenhouse.impl.GreenhousePackageImpl#getGreenhouseButton()
      * @generated
      */
-    EClass GREENHOUSE_SWITCH = eINSTANCE.getGreenhouseSwitch();
+    EClass GREENHOUSE_BUTTON = eINSTANCE.getGreenhouseButton();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GREENHOUSE_BUTTON__TYPE = eINSTANCE.getGreenhouseButton_Type();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -2786,7 +2991,15 @@ public interface GreenhousePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GREENHOUSE_SWITCH__NAME = eINSTANCE.getGreenhouseSwitch_Name();
+    EAttribute GREENHOUSE_BUTTON__NAME = eINSTANCE.getGreenhouseButton_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Controller</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GREENHOUSE_BUTTON__CONTROLLER = eINSTANCE.getGreenhouseButton_Controller();
 
     /**
      * The meta object literal for the '{@link dsl.greenhouse.impl.RowElementImpl <em>Row Element</em>}' class.
@@ -2797,6 +3010,48 @@ public interface GreenhousePackage extends EPackage
      * @generated
      */
     EClass ROW_ELEMENT = eINSTANCE.getRowElement();
+
+    /**
+     * The meta object literal for the '{@link dsl.greenhouse.impl.RowButtonImpl <em>Row Button</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dsl.greenhouse.impl.RowButtonImpl
+     * @see dsl.greenhouse.impl.GreenhousePackageImpl#getRowButton()
+     * @generated
+     */
+    EClass ROW_BUTTON = eINSTANCE.getRowButton();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ROW_BUTTON__TYPE = eINSTANCE.getRowButton_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ROW_BUTTON__NAME = eINSTANCE.getRowButton_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Controller</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ROW_BUTTON__CONTROLLER = eINSTANCE.getRowButton_Controller();
+
+    /**
+     * The meta object literal for the '<em><b>Number</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ROW_BUTTON__NUMBER = eINSTANCE.getRowButton_Number();
 
     /**
      * The meta object literal for the '{@link dsl.greenhouse.impl.GreenhouseActuatorImpl <em>Actuator</em>}' class.

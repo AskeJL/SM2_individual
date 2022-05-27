@@ -45,6 +45,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Topic">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//Hardware"/>
   <eClassifiers xsi:type="ecore:EClass" name="SettingAction">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="settingValue" upperBound="-1"
@@ -66,10 +67,19 @@
         eType="#//RowElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GreenhouseElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="GreenhouseSwitch" eSuperTypes="#//GreenhouseElement">
+  <eClassifiers xsi:type="ecore:EClass" name="GreenhouseButton" eSuperTypes="#//GreenhouseElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Button"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="controller" eType="#//Controller"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RowElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RowButton" eSuperTypes="#//RowElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Button"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="controller" eType="#//Controller"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="number" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GreenhouseActuator" eSuperTypes="#//GreenhouseElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//SettingActuator"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

@@ -11,9 +11,9 @@ import dsl.greenhouse.Div;
 import dsl.greenhouse.Expression;
 import dsl.greenhouse.Greenhouse;
 import dsl.greenhouse.GreenhouseActuator;
+import dsl.greenhouse.GreenhouseButton;
 import dsl.greenhouse.GreenhouseRuleSet;
 import dsl.greenhouse.GreenhouseSensor;
-import dsl.greenhouse.GreenhouseSwitch;
 import dsl.greenhouse.HardwareSetup;
 import dsl.greenhouse.MathNumber;
 import dsl.greenhouse.Minus;
@@ -22,6 +22,7 @@ import dsl.greenhouse.Mult;
 import dsl.greenhouse.Plus;
 import dsl.greenhouse.Row;
 import dsl.greenhouse.RowActuator;
+import dsl.greenhouse.RowButton;
 import dsl.greenhouse.RowRuleSet;
 import dsl.greenhouse.RowSensor;
 import dsl.greenhouse.SettingActuator;
@@ -521,7 +522,18 @@ public class GreenhouseGenerator extends AbstractGenerator {
       return Boolean.valueOf(Objects.equal(_name, _name_1));
     };
     final Iterable<GreenhouseSensor> allGlobalSensors = IterableExtensions.<GreenhouseSensor>filter(EcoreUtil2.<GreenhouseSensor>getAllContentsOfType(root, GreenhouseSensor.class), _function_1);
-    final List<GreenhouseSwitch> allGreenHouseSwitches = EcoreUtil2.<GreenhouseSwitch>getAllContentsOfType(root, GreenhouseSwitch.class);
+    final Function1<GreenhouseButton, Boolean> _function_2 = (GreenhouseButton it) -> {
+      String _name = it.getController().getName();
+      String _name_1 = controller.getName();
+      return Boolean.valueOf(Objects.equal(_name, _name_1));
+    };
+    final Iterable<GreenhouseButton> allGreenHouseButtons = IterableExtensions.<GreenhouseButton>filter(EcoreUtil2.<GreenhouseButton>getAllContentsOfType(root, GreenhouseButton.class), _function_2);
+    final Function1<RowButton, Boolean> _function_3 = (RowButton it) -> {
+      String _name = it.getController().getName();
+      String _name_1 = controller.getName();
+      return Boolean.valueOf(Objects.equal(_name, _name_1));
+    };
+    final Iterable<RowButton> allRowButtons = IterableExtensions.<RowButton>filter(EcoreUtil2.<RowButton>getAllContentsOfType(root, RowButton.class), _function_3);
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("#include <Statistical.h>");
     _builder.newLine();
@@ -544,11 +556,12 @@ public class GreenhouseGenerator extends AbstractGenerator {
     _builder.append(_allSensorTimers);
     _builder.newLineIfNotEmpty();
     {
-      if (((((Object[])Conversions.unwrapArray(allGreenHouseSwitches, Object.class)).length > 0) && Objects.equal(controller.getName(), "GlobalController"))) {
+      if (((((Object[])Conversions.unwrapArray(allGreenHouseButtons, Object.class)).length > 0) || (((Object[])Conversions.unwrapArray(allRowButtons, Object.class)).length > 0))) {
         _builder.append("#define BUTTON_PIN 33");
         _builder.newLine();
       }
     }
+    _builder.newLine();
     _builder.newLine();
     {
       if (((IterableExtensions.size(allSensors) <= 0) && (IterableExtensions.size(allGlobalSensors) <= 0))) {
@@ -849,7 +862,18 @@ public class GreenhouseGenerator extends AbstractGenerator {
       return Boolean.valueOf(Objects.equal(_name, _name_1));
     };
     final Iterable<GreenhouseActuator> allGlobalActuators = IterableExtensions.<GreenhouseActuator>filter(EcoreUtil2.<GreenhouseActuator>getAllContentsOfType(root, GreenhouseActuator.class), _function_3);
-    final List<GreenhouseSwitch> allGreenHouseSwitches = EcoreUtil2.<GreenhouseSwitch>getAllContentsOfType(root, GreenhouseSwitch.class);
+    final Function1<GreenhouseButton, Boolean> _function_4 = (GreenhouseButton it) -> {
+      String _name = it.getController().getName();
+      String _name_1 = controller.getName();
+      return Boolean.valueOf(Objects.equal(_name, _name_1));
+    };
+    final Iterable<GreenhouseButton> allGreenHouseButtons = IterableExtensions.<GreenhouseButton>filter(EcoreUtil2.<GreenhouseButton>getAllContentsOfType(root, GreenhouseButton.class), _function_4);
+    final Function1<RowButton, Boolean> _function_5 = (RowButton it) -> {
+      String _name = it.getController().getName();
+      String _name_1 = controller.getName();
+      return Boolean.valueOf(Objects.equal(_name, _name_1));
+    };
+    final Iterable<RowButton> allRowButtons = IterableExtensions.<RowButton>filter(EcoreUtil2.<RowButton>getAllContentsOfType(root, RowButton.class), _function_5);
     StringConcatenation _builder = new StringConcatenation();
     _builder.newLine();
     _builder.append("void debug(const char *s)");
@@ -984,7 +1008,7 @@ public class GreenhouseGenerator extends AbstractGenerator {
       }
     }
     {
-      if (((((Object[])Conversions.unwrapArray(allGreenHouseSwitches, Object.class)).length > 0) && Objects.equal(controller.getName(), "GlobalController"))) {
+      if (((((Object[])Conversions.unwrapArray(allGreenHouseButtons, Object.class)).length > 0) || (((Object[])Conversions.unwrapArray(allRowButtons, Object.class)).length > 0))) {
         _builder.append("\t");
         _builder.append("pinMode(buttonPin, INPUT_PULLUP); ");
         _builder.newLine();
@@ -1920,7 +1944,18 @@ public class GreenhouseGenerator extends AbstractGenerator {
       return Boolean.valueOf(Objects.equal(_name, _name_1));
     };
     final Iterable<GreenhouseSensor> allGlobalSensors = IterableExtensions.<GreenhouseSensor>filter(EcoreUtil2.<GreenhouseSensor>getAllContentsOfType(root, GreenhouseSensor.class), _function_1);
-    final List<GreenhouseSwitch> allGreenHouseSwitches = EcoreUtil2.<GreenhouseSwitch>getAllContentsOfType(root, GreenhouseSwitch.class);
+    final Function1<GreenhouseButton, Boolean> _function_2 = (GreenhouseButton it) -> {
+      String _name = it.getController().getName();
+      String _name_1 = controller.getName();
+      return Boolean.valueOf(Objects.equal(_name, _name_1));
+    };
+    final Iterable<GreenhouseButton> allGreenHouseButtons = IterableExtensions.<GreenhouseButton>filter(EcoreUtil2.<GreenhouseButton>getAllContentsOfType(root, GreenhouseButton.class), _function_2);
+    final Function1<RowButton, Boolean> _function_3 = (RowButton it) -> {
+      String _name = it.getController().getName();
+      String _name_1 = controller.getName();
+      return Boolean.valueOf(Objects.equal(_name, _name_1));
+    };
+    final Iterable<RowButton> allRowButtons = IterableExtensions.<RowButton>filter(EcoreUtil2.<RowButton>getAllContentsOfType(root, RowButton.class), _function_3);
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("void loop(){");
     _builder.newLine();
@@ -2023,7 +2058,7 @@ public class GreenhouseGenerator extends AbstractGenerator {
       }
     }
     {
-      if (((((Object[])Conversions.unwrapArray(allGreenHouseSwitches, Object.class)).length > 0) && Objects.equal(controller.getName(), "GlobalController"))) {
+      if (((((Object[])Conversions.unwrapArray(allGreenHouseButtons, Object.class)).length > 0) || (((Object[])Conversions.unwrapArray(allRowButtons, Object.class)).length > 0))) {
         _builder.append("\t        ");
         _builder.append("buttonState = digitalRead(BUTTON_PIN);");
         _builder.newLine();

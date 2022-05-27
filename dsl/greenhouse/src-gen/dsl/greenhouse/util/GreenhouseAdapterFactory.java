@@ -126,6 +126,11 @@ public class GreenhouseAdapterFactory extends AdapterFactoryImpl
         return createTopicAdapter();
       }
       @Override
+      public Adapter caseButton(Button object)
+      {
+        return createButtonAdapter();
+      }
+      @Override
       public Adapter caseSettingAction(SettingAction object)
       {
         return createSettingActionAdapter();
@@ -151,14 +156,19 @@ public class GreenhouseAdapterFactory extends AdapterFactoryImpl
         return createGreenhouseElementAdapter();
       }
       @Override
-      public Adapter caseGreenhouseSwitch(GreenhouseSwitch object)
+      public Adapter caseGreenhouseButton(GreenhouseButton object)
       {
-        return createGreenhouseSwitchAdapter();
+        return createGreenhouseButtonAdapter();
       }
       @Override
       public Adapter caseRowElement(RowElement object)
       {
         return createRowElementAdapter();
+      }
+      @Override
+      public Adapter caseRowButton(RowButton object)
+      {
+        return createRowButtonAdapter();
       }
       @Override
       public Adapter caseGreenhouseActuator(GreenhouseActuator object)
@@ -413,6 +423,21 @@ public class GreenhouseAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link dsl.greenhouse.Button <em>Button</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dsl.greenhouse.Button
+   * @generated
+   */
+  public Adapter createButtonAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link dsl.greenhouse.SettingAction <em>Setting Action</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -488,16 +513,16 @@ public class GreenhouseAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link dsl.greenhouse.GreenhouseSwitch <em>Switch</em>}'.
+   * Creates a new adapter for an object of class '{@link dsl.greenhouse.GreenhouseButton <em>Button</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see dsl.greenhouse.GreenhouseSwitch
+   * @see dsl.greenhouse.GreenhouseButton
    * @generated
    */
-  public Adapter createGreenhouseSwitchAdapter()
+  public Adapter createGreenhouseButtonAdapter()
   {
     return null;
   }
@@ -513,6 +538,21 @@ public class GreenhouseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createRowElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dsl.greenhouse.RowButton <em>Row Button</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dsl.greenhouse.RowButton
+   * @generated
+   */
+  public Adapter createRowButtonAdapter()
   {
     return null;
   }

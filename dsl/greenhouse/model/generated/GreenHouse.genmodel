@@ -41,6 +41,7 @@
     <genClasses ecoreClass="Greenhouse.ecore#//Topic">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Greenhouse.ecore#//Topic/name"/>
     </genClasses>
+    <genClasses ecoreClass="Greenhouse.ecore#//Button"/>
     <genClasses ecoreClass="Greenhouse.ecore#//SettingAction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Greenhouse.ecore#//SettingAction/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Greenhouse.ecore#//SettingAction/settingValue"/>
@@ -58,10 +59,18 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Greenhouse.ecore#//Row/elements"/>
     </genClasses>
     <genClasses ecoreClass="Greenhouse.ecore#//GreenhouseElement"/>
-    <genClasses ecoreClass="Greenhouse.ecore#//GreenhouseSwitch">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Greenhouse.ecore#//GreenhouseSwitch/name"/>
+    <genClasses ecoreClass="Greenhouse.ecore#//GreenhouseButton">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Greenhouse.ecore#//GreenhouseButton/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Greenhouse.ecore#//GreenhouseButton/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Greenhouse.ecore#//GreenhouseButton/controller"/>
     </genClasses>
     <genClasses ecoreClass="Greenhouse.ecore#//RowElement"/>
+    <genClasses ecoreClass="Greenhouse.ecore#//RowButton">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Greenhouse.ecore#//RowButton/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Greenhouse.ecore#//RowButton/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Greenhouse.ecore#//RowButton/controller"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Greenhouse.ecore#//RowButton/number"/>
+    </genClasses>
     <genClasses ecoreClass="Greenhouse.ecore#//GreenhouseActuator">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Greenhouse.ecore#//GreenhouseActuator/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Greenhouse.ecore#//GreenhouseActuator/name"/>

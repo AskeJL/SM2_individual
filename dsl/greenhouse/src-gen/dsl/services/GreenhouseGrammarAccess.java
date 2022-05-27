@@ -121,12 +121,13 @@ public class GreenhouseGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cSettingActuatorParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cSettingSensorParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cButtonParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Hardware:
-		//	SettingActuator | SettingSensor;
+		//	SettingActuator | SettingSensor | Button;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//SettingActuator | SettingSensor
+		//SettingActuator | SettingSensor | Button
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//SettingActuator
@@ -134,6 +135,9 @@ public class GreenhouseGrammarAccess extends AbstractElementFinder.AbstractGramm
 		
 		//SettingSensor
 		public RuleCall getSettingSensorParserRuleCall_1() { return cSettingSensorParserRuleCall_1; }
+		
+		//Button
+		public RuleCall getButtonParserRuleCall_2() { return cButtonParserRuleCall_2; }
 	}
 	public class SettingActuatorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dsl.Greenhouse.SettingActuator");
@@ -372,6 +376,29 @@ public class GreenhouseGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 	}
+	public class ButtonElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dsl.Greenhouse.Button");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cButtonKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//Button:
+		//	'Button' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Button' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'Button'
+		public Keyword getButtonKeyword_0() { return cButtonKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
 	public class SettingActionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dsl.Greenhouse.SettingAction");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -522,13 +549,13 @@ public class GreenhouseGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final RuleCall cGreenhouseSensorParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cGreenhouseActuatorParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cGreenhouseRuleSetParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cGreenhouseSwitchParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cGreenhouseButtonParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//GreenhouseElement:
-		//	GreenhouseSensor | GreenhouseActuator | GreenhouseRuleSet | GreenhouseSwitch;
+		//	GreenhouseSensor | GreenhouseActuator | GreenhouseRuleSet | GreenhouseButton;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//GreenhouseSensor | GreenhouseActuator | GreenhouseRuleSet | GreenhouseSwitch
+		//GreenhouseSensor | GreenhouseActuator | GreenhouseRuleSet | GreenhouseButton
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//GreenhouseSensor
@@ -540,35 +567,63 @@ public class GreenhouseGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//GreenhouseRuleSet
 		public RuleCall getGreenhouseRuleSetParserRuleCall_2() { return cGreenhouseRuleSetParserRuleCall_2; }
 		
-		//GreenhouseSwitch
-		public RuleCall getGreenhouseSwitchParserRuleCall_3() { return cGreenhouseSwitchParserRuleCall_3; }
+		//GreenhouseButton
+		public RuleCall getGreenhouseButtonParserRuleCall_3() { return cGreenhouseButtonParserRuleCall_3; }
 	}
-	public class GreenhouseSwitchElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dsl.Greenhouse.GreenhouseSwitch");
+	public class GreenhouseButtonElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dsl.Greenhouse.GreenhouseButton");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cHasKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cSwitchKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Assignment cTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cTypeButtonCrossReference_0_0 = (CrossReference)cTypeAssignment_0.eContents().get(0);
+		private final RuleCall cTypeButtonIDTerminalRuleCall_0_0_1 = (RuleCall)cTypeButtonCrossReference_0_0.eContents().get(1);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cConnectedKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cToKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cControllerKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cControllerAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final CrossReference cControllerControllerCrossReference_5_0 = (CrossReference)cControllerAssignment_5.eContents().get(0);
+		private final RuleCall cControllerControllerIDTerminalRuleCall_5_0_1 = (RuleCall)cControllerControllerCrossReference_5_0.eContents().get(1);
 		
-		//GreenhouseSwitch:
-		//	'has' 'switch' name=ID;
+		//GreenhouseButton:
+		//	type=[Button] name=ID 'connected' 'to' 'controller' controller=[Controller];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'has' 'switch' name=ID
+		//type=[Button] name=ID 'connected' 'to' 'controller' controller=[Controller]
 		public Group getGroup() { return cGroup; }
 		
-		//'has'
-		public Keyword getHasKeyword_0() { return cHasKeyword_0; }
+		//type=[Button]
+		public Assignment getTypeAssignment_0() { return cTypeAssignment_0; }
 		
-		//'switch'
-		public Keyword getSwitchKeyword_1() { return cSwitchKeyword_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		//[Button]
+		public CrossReference getTypeButtonCrossReference_0_0() { return cTypeButtonCrossReference_0_0; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		public RuleCall getTypeButtonIDTerminalRuleCall_0_0_1() { return cTypeButtonIDTerminalRuleCall_0_0_1; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'connected'
+		public Keyword getConnectedKeyword_2() { return cConnectedKeyword_2; }
+		
+		//'to'
+		public Keyword getToKeyword_3() { return cToKeyword_3; }
+		
+		//'controller'
+		public Keyword getControllerKeyword_4() { return cControllerKeyword_4; }
+		
+		//controller=[Controller]
+		public Assignment getControllerAssignment_5() { return cControllerAssignment_5; }
+		
+		//[Controller]
+		public CrossReference getControllerControllerCrossReference_5_0() { return cControllerControllerCrossReference_5_0; }
+		
+		//ID
+		public RuleCall getControllerControllerIDTerminalRuleCall_5_0_1() { return cControllerControllerIDTerminalRuleCall_5_0_1; }
 	}
 	public class RowElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dsl.Greenhouse.RowElement");
@@ -576,12 +631,13 @@ public class GreenhouseGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final RuleCall cRowSensorParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cRowActuatorParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cRowRuleSetParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cRowButtonParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//RowElement:
-		//	RowSensor | RowActuator | RowRuleSet;
+		//	RowSensor | RowActuator | RowRuleSet | RowButton;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//RowSensor | RowActuator | RowRuleSet
+		//RowSensor | RowActuator | RowRuleSet | RowButton
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//RowSensor
@@ -592,6 +648,80 @@ public class GreenhouseGrammarAccess extends AbstractElementFinder.AbstractGramm
 		
 		//RowRuleSet
 		public RuleCall getRowRuleSetParserRuleCall_2() { return cRowRuleSetParserRuleCall_2; }
+		
+		//RowButton
+		public RuleCall getRowButtonParserRuleCall_3() { return cRowButtonParserRuleCall_3; }
+	}
+	public class RowButtonElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dsl.Greenhouse.RowButton");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cTypeButtonCrossReference_0_0 = (CrossReference)cTypeAssignment_0.eContents().get(0);
+		private final RuleCall cTypeButtonIDTerminalRuleCall_0_0_1 = (RuleCall)cTypeButtonCrossReference_0_0.eContents().get(1);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cConnectedKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cToKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cControllerKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cControllerAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final CrossReference cControllerControllerCrossReference_5_0 = (CrossReference)cControllerAssignment_5.eContents().get(0);
+		private final RuleCall cControllerControllerIDTerminalRuleCall_5_0_1 = (RuleCall)cControllerControllerCrossReference_5_0.eContents().get(1);
+		private final Keyword cOnKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cPinKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cNumberAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cNumberExpParserRuleCall_8_0 = (RuleCall)cNumberAssignment_8.eContents().get(0);
+		
+		//RowButton:
+		//	type=[Button] name=ID 'connected' 'to' 'controller' controller=[Controller] 'on' 'pin' number=Exp;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//type=[Button] name=ID 'connected' 'to' 'controller' controller=[Controller] 'on' 'pin' number=Exp
+		public Group getGroup() { return cGroup; }
+		
+		//type=[Button]
+		public Assignment getTypeAssignment_0() { return cTypeAssignment_0; }
+		
+		//[Button]
+		public CrossReference getTypeButtonCrossReference_0_0() { return cTypeButtonCrossReference_0_0; }
+		
+		//ID
+		public RuleCall getTypeButtonIDTerminalRuleCall_0_0_1() { return cTypeButtonIDTerminalRuleCall_0_0_1; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'connected'
+		public Keyword getConnectedKeyword_2() { return cConnectedKeyword_2; }
+		
+		//'to'
+		public Keyword getToKeyword_3() { return cToKeyword_3; }
+		
+		//'controller'
+		public Keyword getControllerKeyword_4() { return cControllerKeyword_4; }
+		
+		//controller=[Controller]
+		public Assignment getControllerAssignment_5() { return cControllerAssignment_5; }
+		
+		//[Controller]
+		public CrossReference getControllerControllerCrossReference_5_0() { return cControllerControllerCrossReference_5_0; }
+		
+		//ID
+		public RuleCall getControllerControllerIDTerminalRuleCall_5_0_1() { return cControllerControllerIDTerminalRuleCall_5_0_1; }
+		
+		//'on'
+		public Keyword getOnKeyword_6() { return cOnKeyword_6; }
+		
+		//'pin'
+		public Keyword getPinKeyword_7() { return cPinKeyword_7; }
+		
+		//number=Exp
+		public Assignment getNumberAssignment_8() { return cNumberAssignment_8; }
+		
+		//Exp
+		public RuleCall getNumberExpParserRuleCall_8_0() { return cNumberExpParserRuleCall_8_0; }
 	}
 	public class GreenhouseActuatorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dsl.Greenhouse.GreenhouseActuator");
@@ -1468,13 +1598,15 @@ public class GreenhouseGrammarAccess extends AbstractElementFinder.AbstractGramm
 	private final ReducerElements pReducer;
 	private final FrequencyElements pFrequency;
 	private final TopicElements pTopic;
+	private final ButtonElements pButton;
 	private final SettingActionElements pSettingAction;
 	private final SettingValueElements pSettingValue;
 	private final GreenhouseElements pGreenhouse;
 	private final RowElements pRow;
 	private final GreenhouseElementElements pGreenhouseElement;
-	private final GreenhouseSwitchElements pGreenhouseSwitch;
+	private final GreenhouseButtonElements pGreenhouseButton;
 	private final RowElementElements pRowElement;
+	private final RowButtonElements pRowButton;
 	private final GreenhouseActuatorElements pGreenhouseActuator;
 	private final RowActuatorElements pRowActuator;
 	private final GreenhouseSensorElements pGreenhouseSensor;
@@ -1508,13 +1640,15 @@ public class GreenhouseGrammarAccess extends AbstractElementFinder.AbstractGramm
 		this.pReducer = new ReducerElements();
 		this.pFrequency = new FrequencyElements();
 		this.pTopic = new TopicElements();
+		this.pButton = new ButtonElements();
 		this.pSettingAction = new SettingActionElements();
 		this.pSettingValue = new SettingValueElements();
 		this.pGreenhouse = new GreenhouseElements();
 		this.pRow = new RowElements();
 		this.pGreenhouseElement = new GreenhouseElementElements();
-		this.pGreenhouseSwitch = new GreenhouseSwitchElements();
+		this.pGreenhouseButton = new GreenhouseButtonElements();
 		this.pRowElement = new RowElementElements();
+		this.pRowButton = new RowButtonElements();
 		this.pGreenhouseActuator = new GreenhouseActuatorElements();
 		this.pRowActuator = new RowActuatorElements();
 		this.pGreenhouseSensor = new GreenhouseSensorElements();
@@ -1583,7 +1717,7 @@ public class GreenhouseGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//Hardware:
-	//	SettingActuator | SettingSensor;
+	//	SettingActuator | SettingSensor | Button;
 	public HardwareElements getHardwareAccess() {
 		return pHardware;
 	}
@@ -1662,6 +1796,16 @@ public class GreenhouseGrammarAccess extends AbstractElementFinder.AbstractGramm
 		return getTopicAccess().getRule();
 	}
 	
+	//Button:
+	//	'Button' name=ID;
+	public ButtonElements getButtonAccess() {
+		return pButton;
+	}
+	
+	public ParserRule getButtonRule() {
+		return getButtonAccess().getRule();
+	}
+	
 	//SettingAction:
 	//	name=ID 'with' 'values' settingValue+=SettingValue (',' settingValue+=SettingValue)*;
 	public SettingActionElements getSettingActionAccess() {
@@ -1705,7 +1849,7 @@ public class GreenhouseGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//GreenhouseElement:
-	//	GreenhouseSensor | GreenhouseActuator | GreenhouseRuleSet | GreenhouseSwitch;
+	//	GreenhouseSensor | GreenhouseActuator | GreenhouseRuleSet | GreenhouseButton;
 	public GreenhouseElementElements getGreenhouseElementAccess() {
 		return pGreenhouseElement;
 	}
@@ -1714,24 +1858,34 @@ public class GreenhouseGrammarAccess extends AbstractElementFinder.AbstractGramm
 		return getGreenhouseElementAccess().getRule();
 	}
 	
-	//GreenhouseSwitch:
-	//	'has' 'switch' name=ID;
-	public GreenhouseSwitchElements getGreenhouseSwitchAccess() {
-		return pGreenhouseSwitch;
+	//GreenhouseButton:
+	//	type=[Button] name=ID 'connected' 'to' 'controller' controller=[Controller];
+	public GreenhouseButtonElements getGreenhouseButtonAccess() {
+		return pGreenhouseButton;
 	}
 	
-	public ParserRule getGreenhouseSwitchRule() {
-		return getGreenhouseSwitchAccess().getRule();
+	public ParserRule getGreenhouseButtonRule() {
+		return getGreenhouseButtonAccess().getRule();
 	}
 	
 	//RowElement:
-	//	RowSensor | RowActuator | RowRuleSet;
+	//	RowSensor | RowActuator | RowRuleSet | RowButton;
 	public RowElementElements getRowElementAccess() {
 		return pRowElement;
 	}
 	
 	public ParserRule getRowElementRule() {
 		return getRowElementAccess().getRule();
+	}
+	
+	//RowButton:
+	//	type=[Button] name=ID 'connected' 'to' 'controller' controller=[Controller] 'on' 'pin' number=Exp;
+	public RowButtonElements getRowButtonAccess() {
+		return pRowButton;
+	}
+	
+	public ParserRule getRowButtonRule() {
+		return getRowButtonAccess().getRule();
 	}
 	
 	//GreenhouseActuator:

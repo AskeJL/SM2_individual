@@ -17,7 +17,7 @@ HardwareSetup:
 ;
 
 Hardware:
-	SettingActuator | SettingSensor
+	SettingActuator | SettingSensor | Button
 ;
 
 
@@ -50,6 +50,9 @@ Topic:
 	'topic' name=ID	
 ;
 
+Button:
+	'Button' name=ID
+;
 SettingAction:
 	name=ID 'with' 'values' settingValue+=SettingValue (',' settingValue+=SettingValue)*
 ;
@@ -69,15 +72,19 @@ Row:
 ;
 
 GreenhouseElement:
-     GreenhouseSensor |  GreenhouseActuator |  GreenhouseRuleSet | GreenhouseSwitch
+     GreenhouseSensor |  GreenhouseActuator |  GreenhouseRuleSet | GreenhouseButton
 ;
 
-GreenhouseSwitch:
-	'has' 'switch' name=ID
+GreenhouseButton:
+	type=[Button] name=ID 'connected' 'to' 'controller' controller=[Controller]
 ;
 
 RowElement:
-     RowSensor |  RowActuator | RowRuleSet
+     RowSensor |  RowActuator | RowRuleSet | RowButton
+;
+
+RowButton:
+	type=[Button] name=ID 'connected' 'to' 'controller' controller=[Controller] 'on' 'pin' number=Exp
 ;
 
 
